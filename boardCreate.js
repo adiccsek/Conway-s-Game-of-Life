@@ -5,7 +5,7 @@ let boardSize = {width: 400, height: 400};
 canvas.width = boardSize.width;
 canvas.height = boardSize.height;
 
-let cellSize = 20;
+let cellSize = 10;
 
 const rows = boardSize.height / cellSize;
 const cols = boardSize.width / cellSize;
