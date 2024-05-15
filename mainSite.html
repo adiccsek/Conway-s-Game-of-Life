@@ -17,12 +17,20 @@
         <p>Cell size: <span id="demo"></span></p>
         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
         <button id="startButton">Start Game</button>
+        <button id="stopButton">Stop Game</button>
+        <button id="clearButton">Clear Board</button>
+        <button id="randomButton">Random Board</button>
+        <button id="saveButton">Save Board</button>
+        Speed: <input id="speedSlider" type="range" min="5000" max="1500" step="25" value="500" class="slider" id="myRange">
+    
     </div>
 
 
 
     <canvas id="gameField"></canvas>
+  
     <script src="boardCreate.js"></script>
     <script src="handleEvent.js"></script>
+    <script src="gameEventsHandler.js"></script>
 </body>
 </html>
