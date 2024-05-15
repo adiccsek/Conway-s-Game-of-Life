@@ -1,7 +1,18 @@
 body {
-    background-color: black;
+    background-image: linear-gradient(to top right, black, rgb(67, 67, 67));
     color: white;
+    background-size: cover;
 }
 #gameField{
    margin-top: 20%;
+   border-radius: 2px;
+   border-color: aliceblue;
+}
+
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
 }
