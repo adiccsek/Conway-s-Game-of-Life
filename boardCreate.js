@@ -16,10 +16,14 @@ let board = new Array(rows + 2).fill().map(() => new Array(cols + 2).fill(0));
 
 // Function to draw the board
 function drawBoard() {
+    // Clear the entire canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
     for(let i = 1; i <= rows; i++) {
         for(let j = 1; j <= cols; j++) {
             ctx.fillStyle = board[i][j] ? 'black' : 'white';
-            ctx.fillRect((j - 1) * cellSize + 1, (i - 1) * cellSize + 1, cellSize - 2, cellSize - 2);
+            // Offset the filled rectangles slightly to cover the borders
+            ctx.fillRect((j - 1) * cellSize + 0.5, (i - 1) * cellSize + 0.5, cellSize - 1, cellSize - 1);
 
             ctx.strokeStyle = 'white';
             ctx.strokeRect((j - 1) * cellSize, (i - 1) * cellSize, cellSize, cellSize);
@@ -40,4 +44,5 @@ function centerCanvas() {
 }
 
 centerCanvas();
-window.addEventListener('resize', centerCanvas);
+
+
