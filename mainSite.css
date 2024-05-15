@@ -6,7 +6,8 @@ body {
 #gameField{
    margin-top: 20%;
    border-radius: 2px;
-   border-color: aliceblue;
+   border-color: aliceblue;   
+   margin-top: 300px;
 }
 
 #logo{
@@ -15,4 +16,25 @@ body {
     margin-right: auto;
     width: 50%;
     text-align: center;
+}
+@media screen and (max-height: 800px) {
+    #gameField{
+        margin-top: 35%;
+    }
+}
+@media screen and (max-height: 700px) {
+    #gameField{
+        margin-top: 40%;
+    }
+    
+}
+@media screen and (max-height: 600px) {
+    #gameField{
+        margin-top: 50%;
+    }
+}
+@media screen and (max-height: 500px) {
+    #gameField{
+        margin-top: 60%;
+    }
 }
