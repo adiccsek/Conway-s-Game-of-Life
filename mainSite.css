@@ -1,17 +1,14 @@
 body {
-    background-image: linear-gradient(to top right, black, rgb(67, 67, 67));
+    background-image: linear-gradient(to right, black, rgb(67, 67, 67));
     color: white;
     background-size: cover;
-    margin: 0%;
-    padding: 0%;
-    
 }
 #gameField{
    margin-top: 20%;
    border-radius: 2px;
    border-color: aliceblue;   
    margin-top: 300px;
-  
+
 }
 
 #logo{
@@ -21,6 +18,35 @@ body {
     width: 50%;
     text-align: center;
 }
+
+
+.divider {
+    display: flex;
+    
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+  }
+
+.glow {
+    &:before,
+    &:after {
+      height: 6px;
+      -webkit-filter: blur(5px);
+      border-radius: 5px;
+    }
+    
+    &:before {
+      background: linear-gradient(to right, gold, grey);
+    }
+    
+    &:after {
+      background: linear-gradient(to left, gold, grey);
+    }
+  }
+
 @media screen and (max-height: 800px) {
     #gameField{
         margin-top: 35%;
@@ -42,6 +68,7 @@ body {
         margin-top: 90%;
     }
 }
+
 @media screen and (max-height: 350px) {
     #gameField{
         margin-top: 120%;
@@ -53,3 +80,5 @@ body {
     }
     
 }
+
+
