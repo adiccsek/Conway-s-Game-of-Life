@@ -7,8 +7,9 @@ canvas.height = boardSize.height;
 
 let cellSize = 10;
 
-const rows = boardSize.height / cellSize;
-const cols = boardSize.width / cellSize;
+//We change the number of cells here (DONT FORGET)
+const rows = boardSize.height / 20;
+const cols = boardSize.width / 20;
 
 // Create a 2D array to represent the game board
 //Additional layer is set. This is to avoid the edge cases.
@@ -45,4 +46,30 @@ function centerCanvas() {
 
 centerCanvas();
 
+function updateCanvasSize() {
+    // Update canvas size
+    boardSize.width = window.innerWidth;
+    boardSize.height = window.innerHeight;
+    canvas.width = boardSize.width;
+    canvas.height = boardSize.height;
+}
 
+function updateCellSize() {
+    // Update cell size based on new canvas size and fixed number of cells
+    cellSize = Math.min(boardSize.width / 40);
+}
+
+function resizeCells() {
+    updateCanvasSize();
+    updateCellSize();
+
+    drawBoard();
+}
+
+// Call the resizeCells function to set the initial size
+resizeCells();
+
+window.addEventListener('resize', function() {
+    resizeCells();
+    centerCanvas();
+});

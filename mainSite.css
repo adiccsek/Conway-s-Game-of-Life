@@ -2,8 +2,6 @@ body {
     background-image: linear-gradient(to right, black, rgb(67, 67, 67));
     color: white;
     background-size: cover;
-    margin: 0;
-    padding: 0;
 }
 #gameField{
    margin-top: 20%;
@@ -67,7 +65,20 @@ body {
 }
 @media screen and (max-height: 500px) {
     #gameField{
-        margin-top: 60%;
+        margin-top: 90%;
     }
 }
+
+@media screen and (max-height: 350px) {
+    #gameField{
+        margin-top: 120%;
+    }
+}
+@media screen and (max-height: 300px) {
+    #gameField{
+        margin-top: 500%;
+    }
+    
+}
+
 
