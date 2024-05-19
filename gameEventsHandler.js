@@ -4,24 +4,20 @@ const stopButton = document.getElementById('stopButton');
 const clearButton = document.getElementById('clearButton');
 const randomButton = document.getElementById('randomButton');
 
-console.log(speedSlider);
-let playing = false;
-let animationId;
-
-startButton.addEventListener('click', () => {
-    playing = true;
-    animationId = requestAnimationFrame(updateBoard);
+//When startbutton is clicked start an infinite loop and call the function updateboard every 1000/speedSlider ms and only stop when stopButton is clicked
+startButton.addEventListener('click', function() {
+    startButton.disabled = true;
+    stopButton.disabled = false;
+    clearButton.disabled = true;
+    randomButton.disabled = true;
+    interval = setInterval(updateBoard, 1000 / speedSlider);
 });
 
-stopButton.addEventListener('click', () => {
-    playing = false;
-    cancelAnimationFrame(animationId);
+stopButton.addEventListener('click', function() {
+    startButton.disabled = false;
+    stopButton.disabled = true;
+    clearButton.disabled = false;
+    randomButton.disabled = false;
+    clearInterval(interval);
 });
 
-function updateBoard() {
-    if (playing) {
-        board = applyRules(board);
-        setInterval(drawBoard(), speedSlider);
-        animationId = requestAnimationFrame(updateBoard);
-    }
-}
