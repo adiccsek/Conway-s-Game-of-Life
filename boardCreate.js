@@ -22,7 +22,7 @@ function drawBoard() {
             td.style.width = cellSize + 'px';
             td.style.height = cellSize + 'px';
             td.style.padding = padding + 'px';
-            td.style.backgroundColor = board[i][j] ? 'grey' : 'lightblue';
+            td.style.backgroundColor = board[i][j] ? 'black' : '#fad25a';
             tr.appendChild(td);
         }     
         table.appendChild(tr);
@@ -37,7 +37,7 @@ function drawCells() {
     for(let i = 1; i <= rows; i++) {
         for(let j = 1; j <= cols; j++) {
             const td = table.rows[i - 1].cells[j - 1];
-            td.style.backgroundColor = board[i][j] ? 'grey' : 'lightblue';
+            td.style.backgroundColor = board[i][j] ? 'black' : '#fad25a';
         }
     }
 }
@@ -51,7 +51,7 @@ gameField.addEventListener('click', function(event) {
     const col = td.cellIndex + 1;
 
     board[row][col] = board[row][col] ? 0 : 1;
-    td.style.backgroundColor = board[row][col] ? 'black' : 'white';
+    td.style.backgroundColor = board[row][col] ? 'black' : '#fad25a';
     drawCells();
 });
 

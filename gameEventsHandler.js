@@ -27,6 +27,7 @@ stopButton.addEventListener('click', function() {
     clearButton.disabled = false;
     randomButton.disabled = false;
     clearInterval(interval);
+    
 });
 
 function createRandomBoard() {
