@@ -25,13 +25,20 @@ td{
 }
 
 #logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    background-image: url(logo.png);
+    min-height: 400px;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-position: center;
 }
 
+h1{
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-shadow: 4px 4px 4px gold;
+}
 
 .divider {
     display: flex;
@@ -52,11 +59,11 @@ td{
     }
     
     &:before {
-      background: linear-gradient(to right, gold, grey);
+      background: linear-gradient(to right, blue, grey);
     }
     
     &:after {
-      background: linear-gradient(to left, gold, grey);
+      background: linear-gradient(to left, aliceblue, grey);
     }
   }
 
