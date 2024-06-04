@@ -18,17 +18,19 @@ startButton.addEventListener('click', function() {
         value =  speedSlider.value;
         clearInterval(interval);
         interval = setInterval(updateBoard, value);
+        
     });    
 });
 
 stopButton.addEventListener('click', function() {
     startButton.disabled = false;
-    stopButton.disabled = true;
+    stopButton.disabled = false;
     clearButton.disabled = false;
     randomButton.disabled = false;
     clearInterval(interval);
     
 });
+   
 
 function createRandomBoard() {
     for(let i = 1; i <= rows; i++) {
