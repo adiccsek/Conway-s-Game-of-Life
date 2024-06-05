@@ -6,23 +6,32 @@
     <title>ConveyLifeGame</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <link rel="stylesheet" href="mainSite.css">
 </head>
 <body>
     <div id="logo">
-        <img src="logo.png" alt="Game of Life" >
+        <h1>Conway's Life Game</h1>
     </div>
     <br>
     <div class="slidecontainer">
-        <p>Cell size: <span id="demo"></span></p>
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
         <button id="startButton">Start Game</button>
+        <button id="stopButton">Stop Game</button>
+        <button id="clearButton">Clear Board</button>
+        <button id="randomButton">Random Board</button>
+        <button id="downloadButton">Save Board</button>
+        
     </div>
+    <input type="range" min="0" max="500" value="200" step="50" class="slider" id="speedSlider">
+            <h2 class="divider line glow" contenteditable></h2>
 
-    <h2 class="divider line glow" contenteditable></h2>
-
-    <canvas id="gameField"></canvas>
+    <div id="gameFieldOuter">
+        <table id="gameField"></table>
+    </div>
     <script src="boardCreate.js"></script>
     <script src="handleEvent.js"></script>
+    <script src="gameEventsHandler.js"></script>
+    <script src="animationDesgin.js"></script>
 </body>
 </html>

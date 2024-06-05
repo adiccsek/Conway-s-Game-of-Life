@@ -2,25 +2,43 @@ body {
     background-image: linear-gradient(to right, black, rgb(67, 67, 67));
     color: white;
     background-size: cover;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
 }
 #gameField{
-   margin-top: 20%;
+   margin-top: 5%;
    border-radius: 2px;
-   border-color: aliceblue;   
-   margin-top: 300px;
-
-}
-
-#logo{
-    display: block;
+   background-color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    text-align: center
+}
+tr{
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+    
+}
+.slidecontainer{
+    padding: 6px;
     text-align: center;
 }
 
+#logo{
+    background-image: url(logo.png);
+    min-height: 400px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-position: center;
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-shadow: 4px 4px 4px gold;
+}
 
 .divider {
     display: flex;
@@ -49,25 +67,131 @@ body {
     }
   }
 
-@media screen and (max-height: 800px) {
-    #gameField{
-        margin-top: 35%;
-    }
-}
-@media screen and (max-height: 700px) {
-    #gameField{
-        margin-top: 40%;
-    }
-    
-}
-@media screen and (max-height: 600px) {
-    #gameField{
-        margin-top: 50%;
-    }
-}
-@media screen and (max-height: 500px) {
-    #gameField{
-        margin-top: 60%;
-    }
-}
+  #startButton{
+    background: linear-gradient(to right, gold, grey);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  #startButton:hover{
+    background: linear-gradient(to left, gold, grey);
+    padding: 17px 34px;
+  }
+  #stopButton{
+    background: linear-gradient(to right, gold, grey);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  #stopButton:hover{
+    background: linear-gradient(to left, gold, grey);
+    padding: 17px 34px;
+  }
+  #clearButton{
+    background: linear-gradient(to right, gold, grey);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  #clearButton:hover{
+    background: linear-gradient(to left, gold, grey);
+    padding: 17px 34px;
+  }
+  #randomButton{
+    background: linear-gradient(to right, gold, grey);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  #randomButton:hover{
+    background: linear-gradient(to left, gold, grey);
+    padding: 17px 34px;
+  }
+  #downloadButton{
+    background: linear-gradient(to right, gold, grey);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  #downloadButton:hover{
+    background: linear-gradient(to left, gold, grey);
+    padding: 17px 34px;
+  }
+  #startButton:disabled{
+    opacity: 0.4;
+  }
+  #stopButton:disabled{
+    opacity: 0.4;
+  }
+  #clearButton:disabled{
+    opacity: 0.4;
+  }
+  #randomButton:disabled{
+    opacity: 0.4;
+  }
+  #downloadButton:disabled{
+    opacity: 0.4;
+  }
 
+
+  #speedSlider{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    -webkit-appearance: none;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+  }
+  #speedSlider:hover{
+    opacity: 1;
+  }
+  #speedSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+  }

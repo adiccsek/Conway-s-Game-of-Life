@@ -1,48 +1,79 @@
-const canvas = document.getElementById('gameField');
-const ctx = canvas.getContext('2d');
+let boardSize = {width: window.innerWidth, height: 50};
 
-let boardSize = {width: 400, height: 400};
-canvas.width = boardSize.width;
-canvas.height = boardSize.height;
+const maxCols = 100; 
+const rows = boardSize.height;
+const cols = Math.min(boardSize.width, maxCols);
 
-let cellSize = 20;
-
-const rows = boardSize.height / cellSize;
-const cols = boardSize.width / cellSize;
-
-// Create a 2D array to represent the game board
-//Additional layer is set. This is to avoid the edge cases.
 let board = new Array(rows + 2).fill().map(() => new Array(cols + 2).fill(0));
 
-// Function to draw the board
+let padding = window.innerWidth * 0.005; 
+
 function drawBoard() {
-    // Clear the entire canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+    const gameField = document.getElementById('gameField');
+    gameField.innerHTML = '';
+
+    const table = document.createElement('table');
+    const cellSize = Math.min(window.innerWidth / cols, window.innerHeight / rows);
+
+    for(let i = 1; i <= rows; i++) {
+        const tr = document.createElement('tr');
+        for(let j = 1; j <= cols; j++) {
+            const td = document.createElement('td');
+            td.style.width = cellSize + 'px';
+            td.style.height = cellSize + 'px';
+            td.style.padding = padding + 'px';
+            td.style.backgroundColor = board[i][j] ? 'black' : '#fad25a';
+            tr.appendChild(td);
+        }     
+        table.appendChild(tr);
+    }
+    gameField.appendChild(table);
+}
+
+function drawCells() {
+    const gameField = document.getElementById('gameField');
+    const table = gameField.querySelector('table');
+
     for(let i = 1; i <= rows; i++) {
         for(let j = 1; j <= cols; j++) {
-            ctx.fillStyle = board[i][j] ? 'black' : 'white';
-            // Offset the filled rectangles slightly to cover the borders
-            ctx.fillRect((j - 1) * cellSize + 0.5, (i - 1) * cellSize + 0.5, cellSize - 1, cellSize - 1);
-
-            ctx.strokeStyle = 'white';
-            ctx.strokeRect((j - 1) * cellSize, (i - 1) * cellSize, cellSize, cellSize);
+            const td = table.rows[i - 1].cells[j - 1];
+            td.style.backgroundColor = board[i][j] ? 'black' : '#fad25a';
         }
     }
 }
+
 drawBoard();
 
-function centerCanvas() {
-    
-    const topOffset = (window.innerHeight - boardSize.height) / 2;
-    const leftOffset = (window.innerWidth - boardSize.width) / 2;
+const gameField = document.getElementById('gameField');
+gameField.addEventListener('click', function(event) {
+    const td = event.target;
+    const row = td.parentNode.rowIndex + 1;
+    const col = td.cellIndex + 1;
 
-    
-    canvas.style.position = 'absolute';
-    canvas.style.top = `${topOffset}px`;
-    canvas.style.left = `${leftOffset}px`;
+    board[row][col] = board[row][col] ? 0 : 1;
+    td.style.backgroundColor = board[row][col] ? 'black' : '#fad25a';
+    drawCells();
+});
+
+window.onresize = function() {
+    padding = window.innerWidth * 0.007; 
+    const tds = document.getElementsByTagName('td');
+    for(let i = 0; i < tds.length; i++) {
+        tds[i].style.padding = padding + 'px';
+    }
 }
 
-centerCanvas();
+const table = document.getElementsByTagName('table')[0];
+table.addEventListener('wheel', function(event) {
+    if (event.deltaY < 0) {
+        padding *= 1.1; 
+    } else {
+        padding *= 0.9; 
+    }
 
-
+    const tds = document.getElementsByTagName('td');
+    for(let i = 0; i < tds.length; i++) {
+        tds[i].style.padding = padding + 'px';
+    }
+    event.preventDefault();
+});
